@@ -1,10 +1,10 @@
 "use client";
 
-import { Suspense, useCallback, useEffect, useRef, useState } from "react";
+import { Suspense, useEffect, useRef, useState } from "react";
 import Header from "../components/Header";
 import StepSection from "../components/StepSection";
 import { steps } from "../data/steps";
-import { setStep, onStepChange } from "../lib/firebase";
+import { onStepChange } from "../lib/firebase";
 
 function Workshop() {
   const [currentStep, setCurrentStep] = useState(-1);
@@ -27,18 +27,13 @@ function Workshop() {
     return unsubscribe;
   }, []);
 
-  const handleUnlock = useCallback((step: number) => {
-    // Write to Firebase — every connected page will receive this instantly
-    setStep(step);
-  }, []);
-
   // The highest newly unlocked step is the one we scroll to
   const highestNewStep =
     prevStep !== currentStep && currentStep > prevStep ? currentStep : -1;
 
   return (
     <>
-      <Header currentStep={currentStep} onUnlock={handleUnlock} />
+      <Header />
 
       <main className="flex-1">
         {/* Hero */}
