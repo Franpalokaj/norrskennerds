@@ -90,7 +90,13 @@ export default function StepSection({
 
       {/* Prompt cards */}
       {step.prompts?.map((prompt, i) => (
-        <PromptCard key={i} label={prompt.label} text={prompt.text} />
+        <PromptCard
+          key={i}
+          label={prompt.label}
+          text={prompt.text}
+          preview={prompt.preview}
+          downloadFilename={prompt.downloadFilename}
+        />
       ))}
 
       {step.guidance && (
