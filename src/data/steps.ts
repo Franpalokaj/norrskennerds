@@ -25,95 +25,133 @@ export interface StepData {
 
 export const steps: StepData[] = [
   {
-    id: 1,
-    title: "Build Your Daily Partner",
-    teaser: "Your first agent. The one that checks in on you every morning.",
+    id: 0,
+    title: "The Opening Prompt",
+    teaser: "Before we build anything, one honest sentence.",
     content:
-      "Your first agent is a daily accountability partner — someone who knows your routines, your goals, and how you like to be nudged. Copy the prompt below into Claude and answer honestly.",
-    prompts: [
-      {
-        text: `I want you to help me design a daily accountability partner agent. Let's build it together.
-
-Start by asking me about:
-- What does my typical morning look like?
-- What am I trying to stay consistent with right now?
-- What tone works best for me — tough love, gentle nudge, or something else?
-- What should this agent track or check in about?
-
-Based on my answers, create a complete skill file I can install as a Claude project. Make it specific to me, not generic.`,
-      },
+      "Before we touch any technology, let's get honest. Write down one sentence on paper:",
+    quote: "The thing I can't figure out is ___.",
+    guidance: "Fold it. Put it away. We'll come back to it at the end.",
+  },
+  {
+    id: 1,
+    title: "Set Up Your System Folder",
+    teaser: "Your system needs a home. This takes 60 seconds.",
+    content:
+      "Everything we build today needs a home. You're going to create one folder on your computer that becomes the hub for your entire coaching system — your agents, your shared context, everything.",
+    instructions: [
+      "Create a new folder on your desktop called my-coaching-system (or whatever you want to call it)",
+      "Open the Claude desktop app",
+      "Go to Settings \u2192 choose your new folder as a Project workspace",
+      "Inside the folder, create an empty file called context.md \u2014 we'll fill this in later",
     ],
     guidance:
-      "Give Claude honest answers. The more specific you are, the better your agent will be.",
+      "That's it. This folder is now the brain of your system. Every agent you build today will read from it.",
   },
   {
     id: 2,
-    title: "Build Your Creative",
-    teaser: "The one that thinks sideways.",
+    title: "Build Your Daily Partner",
+    teaser: "Your first agent. The one that checks in on you every morning.",
     content:
-      "Your second agent is a creative thinking partner — the one you turn to when you need to break out of linear thinking. It draws from fields you care about and matches your creative style.",
+      "Your first agent is a daily accountability partner — someone who checks in on you, knows your routines, and notices when things slip. Copy the prompt below into Claude and have a real conversation. Be honest — the agent you get out is only as good as what you put in.",
     prompts: [
       {
-        text: `I want you to help me design a creative thinking partner. Let's build it together.
+        text: `I want to design a daily accountability partner — an agent that checks in with me, tracks whether I'm following through on what matters, and calls me out when I'm not.
 
-Start by asking me about:
-- What kind of work or projects do I do?
-- When do I usually need creative help — brainstorming, reframing, naming, writing?
-- What's my thinking style — do I like wild ideas or structured lateral thinking?
-- Any domains or fields I want it to draw analogies from?
+Before you build anything, I need you to interview me first. Ask me these questions one at a time, and follow up if my answers are vague:
 
-Based on my answers, create a complete skill file I can install as a Claude project. Make it specific to me, not generic.`,
+- What does my typical morning actually look like? (Not the ideal version — the real one.)
+- What am I trying to stay consistent with right now? What keeps falling off?
+- What tone works best for me — tough love, gentle nudge, or something else? When does each work?
+- What should this agent check in about daily? What about weekly?
+- What are the signs that I'm having a bad day or avoiding something?
+
+Take your time with the interview. Ask follow-up questions. Get specific.
+
+Only after we've had a thorough conversation: take everything I've told you and create a complete skill file for this agent. The skill file should be a markdown document with a YAML frontmatter block (name, description) and a detailed system prompt that captures my specific patterns, preferences, and routines. Not generic — specific to me.`,
       },
     ],
     guidance:
-      "Think about the last time you were stuck creatively. What kind of input would have helped?",
+      "Give Claude honest answers. If it asks a follow-up question, that's a good sign — it means it's trying to understand you, not just generate something.",
   },
   {
     id: 3,
+    title: "Build Your Creative",
+    teaser: "The one that thinks sideways.",
+    content:
+      "Your second agent is a creative thinking partner — the one you turn to when you need to break out of linear thinking. It draws from fields you care about and matches the way you actually generate ideas.",
+    prompts: [
+      {
+        text: `I want to design a creative thinking partner — an agent I turn to when I'm stuck, need fresh angles, or want to think laterally about a problem.
+
+Before you build anything, interview me first. Ask me these questions one at a time, and dig deeper where it's interesting:
+
+- What kind of work or projects am I doing right now?
+- When do I usually need creative help — brainstorming, reframing, naming, writing, problem-solving?
+- How do I naturally think? Do I prefer wild divergent ideas, or structured lateral moves? Do I think in analogies, systems, inversions, or something else?
+- What domains or fields fascinate me? Where should this agent pull unexpected connections from?
+- Can I describe a time I had a genuine creative breakthrough? What made it click?
+
+Take your time. Ask follow-ups. Understand how I think before you try to help me think.
+
+Only after we've had a thorough conversation: take everything I've told you and create a complete skill file for this agent. The skill file should be a markdown document with YAML frontmatter (name, description) and a detailed system prompt that captures my creative style, my domains of interest, and the kind of provocations that actually work on me.`,
+      },
+    ],
+    guidance:
+      "Think about the last time you were genuinely stuck. What kind of input would have helped?",
+  },
+  {
+    id: 4,
     title: "Build Your Skeptic",
     teaser: "The one that tells you what you don't want to hear.",
     content:
-      "Every system needs a contrarian. Your skeptic stress-tests your ideas, finds the holes in your logic, and tells you what your friends won't.",
+      "Every system needs a contrarian. Your skeptic stress-tests your ideas, finds the holes in your logic, and tells you what your friends won't. This is the agent that makes the other two better.",
     prompts: [
       {
-        text: `I want you to help me design a personal skeptic / devil's advocate agent. Let's build it together.
+        text: `I want to design a personal skeptic — an agent that stress-tests my thinking, finds the holes in my reasoning, and pushes back when I'm fooling myself.
 
-Start by asking me about:
+Before you build anything, interview me first. Ask me these questions one at a time, and don't let me off easy:
+
 - What kind of decisions or ideas do I usually need stress-tested?
-- What's my blind spot — where do I tend to fool myself?
-- How hard should it push back — constructive challenge or full demolition?
-- Any specific frameworks or mental models I respect?
+- Where do I tend to fool myself? What's my biggest blind spot?
+- When someone challenges me, how do I typically react? Do I get defensive, shut down, or actually engage?
+- How hard should this agent push — constructive challenge, or full demolition?
+- Are there specific frameworks, mental models, or thinkers whose reasoning style I respect?
+- Can I describe a time I made a bad decision because nobody pushed back?
 
-Based on my answers, create a complete skill file I can install as a Claude project. Make it specific to me, not generic.`,
+Be thorough. The better you understand how I deceive myself, the better you can catch it.
+
+Only after we've had a thorough conversation: take everything I've told you and create a complete skill file for this agent. The skill file should be a markdown document with YAML frontmatter (name, description) and a detailed system prompt that captures my specific blind spots, my reaction patterns, and the level of challenge I actually need.`,
       },
     ],
     guidance:
       "Be honest about your blind spots. That's the whole point of this one.",
   },
   {
-    id: 4,
+    id: 5,
     title: "Shared Context",
     teaser: "The thing that ties them all together.",
     content:
-      "Your agents are only as good as what they know about you. A shared context file is your agents' shared memory — they all read from it, so they stay aligned on who you are and what matters to you.",
+      "Right now your three agents don't know about each other — and they don't know the basics about your life. A shared context file fixes that. This is a quick version — just enough for your agents to be useful today. You'll go deeper later if you want.",
     prompts: [
       {
-        text: `Help me create a shared context file for my AI coaching system. This file will be read by all my agents so they understand who I am and what I'm working on.
+        text: `I need to create a quick context file for my AI coaching system. This file will be saved as context.md in my system folder, and all my agents will read it so they understand who I am.
 
-Ask me about:
-- Who I am (age, location, role, situation)
-- What I'm working on right now (main projects, goals)
-- What my non-negotiables are (habits, routines, boundaries)
-- Any important context (constraints, preferences, values)
+Keep this fast — 5 minutes. Ask me the essentials:
 
-Then create a clean markdown file called context.md that I can save to my Claude workspace.`,
+- Who am I? (Name, age, location, what I do)
+- What am I working on right now? (One or two things, keep it tight)
+- What does a good week look like for me? (3-5 non-negotiables)
+- Anything else my agents should know? (Big constraint, major life thing, key personality trait)
+
+Don't over-interview me on this one. Get the basics, then generate a clean markdown file I can save as context.md. I can always add more later.`,
       },
     ],
     guidance:
-      "This file becomes the foundation. Update it whenever your life changes — your agents will automatically adapt.",
+      "Save the output as context.md in the system folder you created in Step 1. This file is living — update it whenever your life changes and your agents will automatically adapt.",
   },
   {
-    id: 5,
+    id: 6,
     title: "Connect an MCP",
     teaser: "How to give your agents eyes and hands.",
     content:
@@ -142,7 +180,7 @@ Then create a clean markdown file called context.md that I can save to my Claude
     },
   },
   {
-    id: 6,
+    id: 7,
     title: "The Finale",
     teaser: "The moment it all clicks.",
     content:
@@ -169,7 +207,7 @@ Now tear it apart. What's wrong with this? What am I missing? Where would this f
       "Share with the room when you're done. Who got wrecked?",
   },
   {
-    id: 7,
+    id: 8,
     title: "Going Deeper",
     teaser: "The deep version. For when you're ready to go all in.",
     content:
@@ -387,7 +425,7 @@ Your system is live. Here's what to do in the first week:
       "Set aside two uninterrupted hours for each session. Use voice input for Session 1. Be radically honest — nobody else will see this.",
   },
   {
-    id: 8,
+    id: 9,
     title: "Resources",
     teaser: "Everything you need to keep building.",
     content: "Everything you need to keep building after the workshop.",

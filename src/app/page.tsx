@@ -61,7 +61,7 @@ function Workshop() {
           <StepSection
             key={step.id}
             step={step}
-            unlocked={step.id <= currentStep}
+            unlocked={step.id === 0 || step.id <= currentStep}
             shouldScrollTo={step.id === highestNewStep}
           />
         ))}
