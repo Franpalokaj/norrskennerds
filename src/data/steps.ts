@@ -25,15 +25,6 @@ export interface StepData {
 
 export const steps: StepData[] = [
   {
-    id: 0,
-    title: "The Opening Prompt",
-    teaser: "Where it all begins.",
-    content:
-      "Before we touch any technology, let's get honest. Write down one sentence on paper:",
-    quote: "The thing I can't figure out is ___.",
-    guidance: "Fold it. Put it away. We'll come back to it at the end.",
-  },
-  {
     id: 1,
     title: "Build Your Daily Partner",
     teaser: "Your first agent. The one that checks in on you every morning.",
