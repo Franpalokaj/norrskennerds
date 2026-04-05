@@ -32,9 +32,9 @@ export const steps: StepData[] = [
       "Everything we build today needs a home. You're going to create one folder on your computer that becomes the hub for your entire coaching system — your agents, your shared context, everything.",
     instructions: [
       "Create a new folder on your desktop called my-coaching-system (or whatever you want to call it)",
-      "Open the Claude desktop app",
-      "Go to Settings \u2192 choose your new folder as a Project workspace",
       "Inside the folder, create an empty file called context.md \u2014 we'll fill this in later",
+      "Open the Claude desktop app and navigate to Cowork",
+      "Click \u201CWork in a project\u201D \u2192 \u201CChoose different folder\u201D \u2192 select the folder you just created",
     ],
     guidance:
       "That's it. This folder is now the brain of your system. Every agent you build today will read from it.",
