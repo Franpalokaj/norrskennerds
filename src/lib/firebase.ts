@@ -1,15 +1,14 @@
 import { initializeApp } from "firebase/app";
 import { getDatabase, ref, set, onValue } from "firebase/database";
 
-// TODO: Replace with your Firebase config from console.firebase.google.com
 const firebaseConfig = {
-  apiKey: "YOUR_API_KEY",
-  authDomain: "YOUR_PROJECT.firebaseapp.com",
-  databaseURL: "https://YOUR_PROJECT-default-rtdb.firebaseio.com",
-  projectId: "YOUR_PROJECT",
-  storageBucket: "YOUR_PROJECT.appspot.com",
-  messagingSenderId: "YOUR_SENDER_ID",
-  appId: "YOUR_APP_ID",
+  apiKey: "AIzaSyCkY9dKPrrHkUcuUXrK4brK_V7aNea79Mw",
+  authDomain: "norrsken-workshop.firebaseapp.com",
+  databaseURL: "https://norrsken-workshop-default-rtdb.europe-west1.firebasedatabase.app",
+  projectId: "norrsken-workshop",
+  storageBucket: "norrsken-workshop.firebasestorage.app",
+  messagingSenderId: "264539975123",
+  appId: "1:264539975123:web:3e92d26e864b5f79435326",
 };
 
 const app = initializeApp(firebaseConfig);
