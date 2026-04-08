@@ -1,14 +1,13 @@
 "use client";
 
-import { Suspense, useRef, useState } from "react";
+import { Suspense, useState } from "react";
 import Header from "../../components/Header";
 import StepSection from "../../components/StepSection";
 import { steps } from "../../data/steps";
 
 function SelfPacedWorkshop() {
-  const [currentStep, setCurrentStep] = useState(0);
+  const [currentStep, setCurrentStep] = useState(-1);
   const [prevStep, setPrevStep] = useState(-1);
-  const continueRef = useRef<HTMLDivElement>(null);
 
   const handleContinue = () => {
     setPrevStep(currentStep);
@@ -17,8 +16,6 @@ function SelfPacedWorkshop() {
 
   const highestNewStep =
     prevStep !== currentStep && currentStep > prevStep ? currentStep : -1;
-
-  const isLastStep = currentStep >= steps.length - 1;
 
   return (
     <>
@@ -34,10 +31,21 @@ function SelfPacedWorkshop() {
           </h1>
           <p className="mt-6 max-w-lg text-base leading-relaxed text-[#c4bfb6]">
             Work through the workshop at your own pace. Complete each step, then
-            hit <strong className="text-[#ece8e1]">Continue</strong> to unlock
-            the next one. By the end you&apos;ll have a personal AI coaching
-            system built around who you actually are.
+            hit{" "}
+            <strong className="text-[#ece8e1]">Continue</strong>{" "}
+            to unlock the next one. By the end you&apos;ll have a personal AI
+            coaching system built around who you actually are.
           </p>
+
+          {/* Start button */}
+          {currentStep < 0 && (
+            <button
+              onClick={handleContinue}
+              className="mt-8 rounded-full border border-[#3d3b37] px-6 py-2.5 text-sm font-medium tracking-wide text-[#8a8578] transition-colors hover:border-[#E8734A] hover:text-[#E8734A]"
+            >
+              Start
+            </button>
+          )}
         </section>
 
         {/* Divider */}
@@ -46,29 +54,22 @@ function SelfPacedWorkshop() {
         </div>
 
         {/* Steps */}
-        {steps.map((step) => (
-          <StepSection
-            key={step.id}
-            step={step}
-            unlocked={step.id <= currentStep}
-            shouldScrollTo={step.id === highestNewStep}
-          />
-        ))}
+        {steps.map((step) => {
+          const isCurrentStep = step.id === currentStep;
+          const isLastStep = step.id === steps.length - 1;
 
-        {/* Continue button */}
-        {!isLastStep && (
-          <div
-            ref={continueRef}
-            className="mx-auto w-full max-w-[720px] px-6 pb-8"
-          >
-            <button
-              onClick={handleContinue}
-              className="w-full rounded-lg bg-[#E8734A] px-6 py-4 text-sm font-semibold text-white transition-colors hover:bg-[#d4663f] active:bg-[#c05a36]"
-            >
-              Continue to Step {currentStep + 1}
-            </button>
-          </div>
-        )}
+          return (
+            <StepSection
+              key={step.id}
+              step={step}
+              unlocked={step.id <= currentStep}
+              shouldScrollTo={step.id === highestNewStep}
+              onContinue={
+                isCurrentStep && !isLastStep ? handleContinue : undefined
+              }
+            />
+          );
+        })}
 
         {/* Spacer between last step and footer */}
         <div className="h-20" />

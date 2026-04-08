@@ -8,12 +8,16 @@ interface StepSectionProps {
   step: StepData;
   unlocked: boolean;
   shouldScrollTo: boolean;
+  onContinue?: () => void;
+  continueLabel?: string;
 }
 
 export default function StepSection({
   step,
   unlocked,
   shouldScrollTo,
+  onContinue,
+  continueLabel,
 }: StepSectionProps) {
   const ref = useRef<HTMLElement>(null);
   const [showCollapsible, setShowCollapsible] = useState(false);
@@ -166,6 +170,18 @@ export default function StepSection({
               <p className="mt-1 text-sm text-[#8a8578]">{link.description}</p>
             </a>
           ))}
+        </div>
+      )}
+
+      {/* Inline continue button (self-paced mode) */}
+      {onContinue && (
+        <div className="mt-10 flex justify-center">
+          <button
+            onClick={onContinue}
+            className="rounded-full border border-[#3d3b37] px-5 py-2 text-xs font-medium tracking-wide text-[#8a8578] transition-colors hover:border-[#E8734A] hover:text-[#E8734A]"
+          >
+            {continueLabel ?? "Done — continue"}
+          </button>
         </div>
       )}
     </section>
