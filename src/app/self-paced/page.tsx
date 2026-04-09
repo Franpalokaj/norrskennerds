@@ -79,7 +79,7 @@ function SelfPacedWorkshop() {
 
       {/* Footer */}
       <footer className="pb-32 pt-10 text-center text-xs text-[#6b665c]">
-        Built with Claude — Norrsken Barcelona, April 2026
+        Built with Claude
       </footer>
     </>
   );
