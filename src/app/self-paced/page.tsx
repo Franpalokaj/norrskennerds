@@ -6,12 +6,14 @@ import StepSection from "../../components/StepSection";
 import { steps } from "../../data/steps";
 
 function SelfPacedWorkshop() {
-  const [currentStep, setCurrentStep] = useState(-1);
-  const [prevStep, setPrevStep] = useState(-1);
+  const [currentStep, setCurrentStep] = useState(0);
+  const [prevStep, setPrevStep] = useState(0);
+
+  const lastStepId = steps[steps.length - 1].id;
 
   const handleContinue = () => {
     setPrevStep(currentStep);
-    setCurrentStep((prev) => Math.min(prev + 1, steps.length - 1));
+    setCurrentStep((prev) => Math.min(prev + 1, lastStepId));
   };
 
   const highestNewStep =
@@ -38,7 +40,7 @@ function SelfPacedWorkshop() {
           </p>
 
           {/* Start button */}
-          {currentStep < 0 && (
+          {currentStep < 1 && (
             <button
               onClick={handleContinue}
               className="mt-8 rounded-full border border-[#3d3b37] px-6 py-2.5 text-sm font-medium tracking-wide text-[#8a8578] transition-colors hover:border-[#E8734A] hover:text-[#E8734A]"
@@ -56,7 +58,7 @@ function SelfPacedWorkshop() {
         {/* Steps */}
         {steps.map((step) => {
           const isCurrentStep = step.id === currentStep;
-          const isLastStep = step.id === steps.length - 1;
+          const isLastStep = step.id === lastStepId;
 
           return (
             <StepSection
