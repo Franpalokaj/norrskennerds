@@ -21,7 +21,7 @@ function SelfPacedWorkshop() {
 
   return (
     <>
-      <Header />
+      <Header title="Claude Co-work Workshop" />
 
       <main className="flex-1">
         {/* Hero */}
