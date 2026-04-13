@@ -64,11 +64,10 @@ function Workshop() {
             step={step}
             unlocked={step.id <= currentStep}
             shouldScrollTo={step.id === highestNewStep}
-          />
+          >
+            {step.id === 8 && <CoffeeMatch />}
+          </StepSection>
         ))}
-
-        {/* Coffee match sign-up */}
-        <CoffeeMatch />
       </main>
 
       {/* Footer */}

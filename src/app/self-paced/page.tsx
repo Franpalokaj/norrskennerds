@@ -2,6 +2,7 @@
 
 import { Suspense, useState } from "react";
 import Header from "../../components/Header";
+import CoffeeMatch from "../../components/CoffeeMatch";
 import StepSection from "../../components/StepSection";
 import { steps } from "../../data/steps";
 
@@ -69,7 +70,9 @@ function SelfPacedWorkshop() {
               onContinue={
                 isCurrentStep && !isLastStep ? handleContinue : undefined
               }
-            />
+            >
+              {step.id === 8 && <CoffeeMatch />}
+            </StepSection>
           );
         })}
 

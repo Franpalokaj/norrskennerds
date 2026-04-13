@@ -10,6 +10,7 @@ interface StepSectionProps {
   shouldScrollTo: boolean;
   onContinue?: () => void;
   continueLabel?: string;
+  children?: React.ReactNode;
 }
 
 export default function StepSection({
@@ -18,6 +19,7 @@ export default function StepSection({
   shouldScrollTo,
   onContinue,
   continueLabel,
+  children,
 }: StepSectionProps) {
   const ref = useRef<HTMLElement>(null);
   const [showCollapsible, setShowCollapsible] = useState(false);
@@ -106,6 +108,9 @@ export default function StepSection({
       {step.guidance && (
         <p className="mt-6 text-sm text-[#8a8578]">{step.guidance}</p>
       )}
+
+      {/* Custom children (e.g. Coffee Match form) */}
+      {children}
 
       {/* Collapsible section */}
       {step.collapsible && (

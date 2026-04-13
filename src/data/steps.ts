@@ -199,6 +199,13 @@ Now tear it apart. What's wrong with this? What am I missing? Where would this f
   },
   {
     id: 8,
+    title: "Coffee Match",
+    teaser: "Meet someone new from today's workshop.",
+    content:
+      "Drop your name below and we'll match you with someone from today's workshop for a coffee next week. Compare systems, swap tricks, make a friend.",
+  },
+  {
+    id: 9,
     title: "Going Deeper",
     teaser: "The deep version. For when you're ready to go all in.",
     content:
@@ -416,7 +423,7 @@ Your system is live. Here's what to do in the first week:
       "Set aside two uninterrupted hours for each session. Use voice input for Session 1. Be radically honest — nobody else will see this.",
   },
   {
-    id: 9,
+    id: 10,
     title: "Resources",
     teaser: "Everything you need to keep building.",
     content: "Everything you need to keep building after the workshop.",
