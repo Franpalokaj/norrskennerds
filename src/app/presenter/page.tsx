@@ -68,7 +68,7 @@ const sections: Section[] = [
     cards: [
       {
         type: "prompt",
-        text: "What should they do first?",
+        text: "Cool, so we've got a good mix. What do you want them to do first?",
       },
       {
         type: "note",
@@ -92,7 +92,7 @@ const sections: Section[] = [
       },
       {
         type: "prompt",
-        text: "They're ready to start building.",
+        text: "Okay, everyone's got you open on their laptops. What now?",
       },
       {
         type: "note",
@@ -131,6 +131,10 @@ const sections: Section[] = [
     title: "BUILD: The Daily Partner",
     cards: [
       { type: "do", text: "Unlock Step 1 on the website." },
+      {
+        type: "prompt",
+        text: "They're ready. What are we building first?",
+      },
       {
         type: "say",
         text: '"Copy the prompt from the website, paste it into Claude, and follow along. Claude will interview you about your morning routine, what you want tracked, what tone you want. Just answer honestly."',
@@ -242,7 +246,19 @@ const sections: Section[] = [
     cards: [
       {
         type: "note",
-        text: "Deploy when you sense the room dipping (usually ~35-45 min in). This is a floating section — use it when needed.",
+        text: "Deploy when you sense the room dipping (usually ~35-45 min in). This is a floating section — pick the prompt that matches the room energy.",
+      },
+      {
+        type: "prompt",
+        text: "They're flying. I think they're ahead of you.",
+      },
+      {
+        type: "prompt",
+        text: "Some people look a bit stuck. Any advice?",
+      },
+      {
+        type: "prompt",
+        text: "Mixed bag out here. Some fast, some stuck.",
       },
       {
         type: "say",
@@ -265,6 +281,10 @@ const sections: Section[] = [
     title: "THE FINALE: Unfold → Creative → Skeptic",
     cards: [
       { type: "do", text: "Unlock Step 6 on the website." },
+      {
+        type: "prompt",
+        text: "Alright, all three agents are built. Now what?",
+      },
       {
         type: "say",
         text: '"Remember that post-it from the beginning? Unfold it."',
@@ -366,6 +386,10 @@ const sections: Section[] = [
     title: "Close",
     cards: [
       {
+        type: "prompt",
+        text: "Any final words for the room?",
+      },
+      {
         type: "say",
         text: "\"This workshop was designed by an AI coaching system. You just built the thing that built this workshop.\"",
       },
@@ -396,7 +420,7 @@ const cardMeta: Record<Card["type"], { label: string; color: string; border: str
   say:    { label: "Say",    color: "#7AA2F7", border: "#7AA2F7", bg: "transparent" },
   prompt: { label: "Prompt", color: "#E8734A", border: "#E8734A", bg: "#3a2f28" },
   do:     { label: "Do",     color: "#9ECE6A", border: "#9ECE6A", bg: "transparent" },
-  note:   { label: "Note",   color: "#E0AF68", border: "#E0AF68", bg: "#35301e" },
+  note:   { label: "Note",   color: "#8a8578", border: "#6b665c", bg: "#353330" },
 };
 
 // ────────────────────────────────────────────
@@ -615,7 +639,7 @@ export default function PresenterPage() {
             </div>
 
             {/* Cards */}
-            <div className="flex flex-col gap-4">
+            <div className="flex flex-col gap-6">
               {section.cards.map((card, i) => (
                 <PresenterCard key={i} card={card} />
               ))}
