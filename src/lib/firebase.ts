@@ -1,5 +1,5 @@
 import { initializeApp } from "firebase/app";
-import { getDatabase, ref, set, onValue } from "firebase/database";
+import { getDatabase, ref, set, push, onValue } from "firebase/database";
 
 const firebaseConfig = {
   apiKey: "AIzaSyCkY9dKPrrHkUcuUXrK4brK_V7aNea79Mw",
@@ -24,5 +24,14 @@ export function onStepChange(callback: (step: number) => void) {
   return onValue(stepRef, (snapshot) => {
     const val = snapshot.val();
     callback(typeof val === "number" ? val : -1);
+  });
+}
+
+const coffeeRef = ref(db, "workshop/coffeeMatch");
+
+export function submitCoffeeMatch(name: string) {
+  return push(coffeeRef, {
+    name,
+    submittedAt: new Date().toISOString(),
   });
 }

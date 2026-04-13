@@ -4,6 +4,7 @@ import { Suspense, useEffect, useRef, useState } from "react";
 import Header from "../components/Header";
 import StepSection from "../components/StepSection";
 import { steps } from "../data/steps";
+import CoffeeMatch from "../components/CoffeeMatch";
 import { onStepChange } from "../lib/firebase";
 
 function Workshop() {
@@ -66,8 +67,8 @@ function Workshop() {
           />
         ))}
 
-        {/* Spacer between last step and footer */}
-        <div className="h-20" />
+        {/* Coffee match sign-up */}
+        <CoffeeMatch />
       </main>
 
       {/* Footer */}
