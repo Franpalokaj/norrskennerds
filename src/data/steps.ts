@@ -140,6 +140,14 @@ Don't over-interview me on this one. Get the basics, then generate a clean markd
     ],
     guidance:
       "Save the output as context.md in the system folder you created in Step 1. This file is living — update it whenever your life changes and your agents will automatically adapt.",
+    links: [
+      {
+        label: "Typora",
+        url: "https://typora.io",
+        description:
+          "Want your .md files to look like real documents? Typora renders markdown beautifully — just double-click any .md file.",
+      },
+    ],
   },
   {
     id: 6,
