@@ -55,7 +55,7 @@ export default function StepSection({
   return (
     <section
       ref={ref}
-      className={`mx-auto w-full max-w-[720px] px-6 py-16 transition-all duration-[400ms] ${
+      className={`relative mx-auto w-full max-w-[720px] px-6 py-16 transition-all duration-[400ms] ${
         animateIn
           ? "translate-y-0 opacity-100"
           : "translate-y-4 opacity-0"
